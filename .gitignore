@@ -1,0 +1,11 @@
+.ipynb_checkpoints
+*.jpg
+*.tif
+ipynb_checkpoints
+*.png
+data/
+*.jpeg
+*.JPG
+.idea/
+*.xml
+
