@@ -1,30 +1,36 @@
-Sure, you can modify the HTML to include information about Brain Tumors and change the "Predict" button to redirect to the `/predict` endpoint. Here's an updated version of your `home.html`:
-
-```html
 <!DOCTYPE html>
 <html>
 <head>
     <title>Tumor Detection</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #800080;
+            color: #fff;
         }
         .container {
+            display: flex;
+            justify-content: space-between;
             width: 80%;
             margin: 0 auto;
-            background-color: #f0f0f0;
-            border-radius: 8px;
             padding: 20px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
         }
-        h1, h2 {
-            color: #333;
+        .info {
+            width: 45%;
+            background-color: #000;
+            padding: 20px;
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
         }
-        p {
-            color: #666;
+        .image {
+            width: 45%;
+        }
+        .image img {
+            width: 100%;
+            height: auto;
         }
         .navbar {
             background-color: #333;
@@ -52,12 +58,17 @@ Sure, you can modify the HTML to include information about Brain Tumors and chan
         <a href="https://en.wikipedia.org/wiki/Brain_tumor" target="_blank">Wikipedia Page</a>
     </div>
     <div class="container">
-        <h1>Tumor Detection</h1>
-        <p>A brain tumor is a mass or growth of abnormal cells in your brain. Many different types of brain tumors exist. Some brain tumors are noncancerous (benign), and some brain tumors are cancerous (malignant). Brain tumors can begin in your brain (primary brain tumors), or cancer can begin in other parts of your body and spread to your brain (secondary, or metastatic, brain tumors).</p>
-        <p>This application uses a deep learning model to detect the presence of tumors in brain scans. Click on 'Predict' to upload an image for tumor detection.</p>
+        <div class="info">
+            <h1>Tumor Detection</h1>
+            <p>A brain tumor is a mass or growth of abnormal cells in your brain. Many different types of brain tumors exist. Some brain tumors are noncancerous (benign), and some brain tumors are cancerous (malignant). Brain tumors can begin in your brain (primary brain tumors), or cancer can begin in other parts of your body and spread to your brain (secondary, or metastatic, brain tumors).</p>
+            <p>This application uses a deep learning model to detect the presence of tumors in brain scans. Click on 'Predict' to upload an image for tumor detection.</p>
+        </div>
+        <div class="image">
+            <img src="path_to_your_image" alt="Brain Tumor Image">
+        </div>
     </div>
+    <script>
+        // Add your JavaScript code here for interactivity
+    </script>
 </body>
 </html>
-```
-
-In this version, the "Predict" button in the navigation bar now redirects to the `/predict` endpoint. I've also added some basic information about Brain Tumors. You can replace this with more detailed or specific information as needed.
