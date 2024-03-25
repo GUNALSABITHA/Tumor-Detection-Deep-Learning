@@ -1,3 +1,6 @@
+Sure, you can modify the HTML to include information about Brain Tumors and change the "Predict" button to redirect to the `/predict` endpoint. Here's an updated version of your `home.html`:
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +26,6 @@
         p {
             color: #666;
         }
-        .upload-section {
-            background-color: #fff;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-        }
         .navbar {
             background-color: #333;
             overflow: hidden;
@@ -52,19 +48,16 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#predict">Predict</a>
+        <a href="/predict">Predict</a>
         <a href="https://en.wikipedia.org/wiki/Brain_tumor" target="_blank">Wikipedia Page</a>
     </div>
     <div class="container">
         <h1>Tumor Detection</h1>
-        <p>This application uses a deep learning model to detect the presence of tumors in brain scans. Please upload an image for tumor detection.</p>
-        <div class="upload-section">
-            <h2>Upload your image</h2>
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="image" accept="image/*" required>
-                <input type="submit" value="Detect">
-            </form>
-        </div>
+        <p>A brain tumor is a mass or growth of abnormal cells in your brain. Many different types of brain tumors exist. Some brain tumors are noncancerous (benign), and some brain tumors are cancerous (malignant). Brain tumors can begin in your brain (primary brain tumors), or cancer can begin in other parts of your body and spread to your brain (secondary, or metastatic, brain tumors).</p>
+        <p>This application uses a deep learning model to detect the presence of tumors in brain scans. Click on 'Predict' to upload an image for tumor detection.</p>
     </div>
 </body>
 </html>
+```
+
+In this version, the "Predict" button in the navigation bar now redirects to the `/predict` endpoint. I've also added some basic information about Brain Tumors. You can replace this with more detailed or specific information as needed.
