@@ -19,4 +19,4 @@ seaborn = "*"
 scikit-learn = "*"
 
 
-[requires
+[requires]
