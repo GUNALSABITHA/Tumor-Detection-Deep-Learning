@@ -63,9 +63,14 @@ def create_data_directory(DEST_ROOT, ROOT_DIR, type='train', size=1):
 
 
 # Create the directories for the given type of data.
+# Creating the test directory with 15% of the data.
 create_data_directory('data', "Brain Tumor Data Set/Brain Tumor Data Set", "test", 0.15)
 print(f"The test directory has been created with {len(os.listdir('data/test'))}.")
+
+# Creating the validation directory with 15% of the data.
 create_data_directory('data', "Brain Tumor Data Set/Brain Tumor Data Set", "val", 0.15)
 print(f"The val directory has been created with {len(os.listdir('data/val'))}.")
+
+# Here I am not passing any size parameter, so the default size is 1, and it will take up all the remaining data.
 create_data_directory('data',"Brain Tumor Data Set/Brain Tumor Data Set", "train")
 print(f"The train directory has been created with {len(os.listdir('data/train'))}.")

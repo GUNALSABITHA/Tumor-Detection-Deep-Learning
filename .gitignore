@@ -4,6 +4,7 @@
 *.png
 data/
 *.jpeg
+*.zip
 *.JPG
 .idea/
 *.xml
