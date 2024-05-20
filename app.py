@@ -10,10 +10,11 @@ import keras
 import numpy as np
 import os
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # model = load_model("models/Final-Model-FineTuned.keras")
 model = tf.lite.Interpreter(model_path="models/converted_model.tflite")
+# model = tf.Interpreter(model_path="models/converted_model.tflite")
 model.allocate_tensors()
 # load the tflite model using tflite package
 # Load the TFLite model and allocate tensors.
