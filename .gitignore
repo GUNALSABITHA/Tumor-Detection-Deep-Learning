@@ -10,3 +10,6 @@ data/
 *.xml
 .DS_Store/
 
+.DS_Store
+__pycache__
+

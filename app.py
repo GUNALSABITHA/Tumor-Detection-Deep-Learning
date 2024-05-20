@@ -1,19 +1,20 @@
-from keras.preprocessing import image
-import tflite
-from keras.models import load_model
+# from keras.preprocessing import image
+# import tflite
+# from keras.models import load_model
 from flask import Flask, request, redirect, url_for, flash, jsonify, render_template
 from werkzeug.utils import secure_filename
 from PIL import Image
 
-import tensorflow as tf
-import keras
+import tflite_runtime as tf
+from tflite_runtime.interpreter import Interpreter
+# import keras
 import numpy as np
 import os
 
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # model = load_model("models/Final-Model-FineTuned.keras")
-model = tf.lite.Interpreter(model_path="models/converted_model.tflite")
+model = Interpreter(model_path="models/converted_model.tflite")
 # model = tf.Interpreter(model_path="models/converted_model.tflite")
 model.allocate_tensors()
 # load the tflite model using tflite package
