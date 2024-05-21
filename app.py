@@ -24,66 +24,35 @@ model.allocate_tensors()
 app = Flask(__name__, template_folder='templates')
 
 
-# def predict_class(model, path):
-#     """
-#     Predicts the class of the image at the given path
-#
-#     Returns an integer corresponding to the class of the image.
-#     :param path: Path to the image to predict.
-#     :param model: Model to use for prediction, must be a Keras model (load_model) object.
-#     :type path:
-#     :return: int
-#     :rtype:
-#     """
-#     img = Image.open(path)
-#     img = img.resize((224, 224))
-#     img_array = np.array(img)
-#     if len(img_array.shape) == 2:
-#         img_array = img_array.reshape((224, 224, 1))
-#     # Convert from uint8 (0-255) to float32 (0.0-1.0) for the model
-#     img_array = img_array.astype('float32') / 255.0
-#
-#     threshold = 0.5
-#     prediction = model.predict(img_array[np.newaxis])  # Make prediction
-#     classification = 1 if prediction[0][0] > threshold else 0  # Apply threshold
-#
-#     # Print the classification result (0 - Brain Tumor, 1 - Healthy)
-#     return classification
-
-def predict_class(model, path):
+def predict_class(model, file):
     """
-    Predicts the class of the image at the given path
+    Predicts the class of the image from the given file object
 
     Returns an integer corresponding to the class of the image.
-    :param path: Path to the image to predict.
+    :param file: File object to predict.
     :param model: Model to use for prediction, must be a TensorFlow Lite Interpreter object.
-    :type path:
+    :type file: werkzeug.datastructures.FileStorage
     :return: int
     :rtype:
     """
-    img = Image.open(path)
+    img = Image.open(file)
     img = img.resize((224, 224))
     img_array = np.array(img)
     if len(img_array.shape) == 2:
         img_array = img_array.reshape((224, 224, 1))
-    # Convert from uint8 (0-255) to float32 (0.0-1.0) for the model
     img_array = img_array.astype('float32') / 255.0
 
-    # Set the tensor to point to the input data to be inferred
     input_details = model.get_input_details()
     model.set_tensor(input_details[0]['index'], img_array[np.newaxis])
 
-    # Run the inference
     model.invoke()
 
-    # Get the output of the inference
     output_details = model.get_output_details()
     output_data = model.get_tensor(output_details[0]['index'])
 
     threshold = 0.5
-    classification = 1 if output_data[0][0] > threshold else 0  # Apply threshold
+    classification = 1 if output_data[0][0] > threshold else 0
 
-    # Print the classification result (0 - Brain Tumor, 1 - Healthy)
     return classification
 
 
@@ -102,15 +71,8 @@ def predict():
     if not file:
         return "No file uploaded", 400
 
-    #     display the image in the server backend
-    img = Image.open(file)
-
-    # Save the image to the server
-    img_path = os.path.join("uploads", secure_filename(file.filename))
-    img.save(img_path)
-
     # Predict the class of the image
-    prediction = predict_class(model=model, path=img_path)
+    prediction = predict_class(model=model, file=file)
 
     print(prediction * 100)
 
