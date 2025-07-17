@@ -31,6 +31,5 @@ This application is for educational purposes only. The predictions made by the a
 Feel free to contribute to this project by opening an issue or submitting a pull request. Thank you for your interest in this project!
 
 Connect with me on
-- [LinkedIn](https://www.linkedin.com/in/kausik-devanathan/)
-- [Twitter](https://twitter.com/KausikDevanath1)
-- [Discord](https://discordapp.com/users/914075502879330335)
+- [LinkedIn](https://www.linkedin.com/in/gunalds/)
+- [Gmail](dsgunal007@gmail.com]
